@@ -1,4 +1,4 @@
-package uniquindio.edu.co;
+package uniquindio.edu.co.model;
 
 public enum EstPedido {
 
