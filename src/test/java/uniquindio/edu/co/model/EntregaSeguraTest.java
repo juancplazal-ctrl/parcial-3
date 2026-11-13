@@ -5,6 +5,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class EntregaSeguraTest {
 
+    //PRUEBAS
+
     @Test
     void costoA3KmSinRecargo() {
         EntregaSegura empresa = new EntregaSegura();

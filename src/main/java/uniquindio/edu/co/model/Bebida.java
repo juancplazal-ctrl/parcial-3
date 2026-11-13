@@ -2,10 +2,16 @@ package uniquindio.edu.co.model;
 
 public class Bebida extends Producto {
 
+    //ATRIBUTOS
+
     private double volumenMl;
     private double temperaturaServicio;
     private Temperatura temperatura;
     private boolean requierePreparacionEspecial;
+
+    /*
+    CONSTRUCTOR
+     */
 
     public Bebida(String codigo, String nombre, String descripcion, double precioBase, int tiempoPreparacionMin, double volumenMl, double temperaturaServicio, Temperatura temperatura, boolean requierePreparacionEspecial) {
 
@@ -16,6 +22,8 @@ public class Bebida extends Producto {
         this.requierePreparacionEspecial = requierePreparacionEspecial;
 
     }
+
+    //METODOS PARA CALCULAR PRECIOS, REQUISITOS
 
     @Override
     public double calcularPrecioVenta(){
@@ -41,6 +49,8 @@ public class Bebida extends Producto {
     public TipoProducto getCategoria(){
         return TipoProducto.BEBIDA;
     }
+
+    //GETTERS, SETTERS
 
     public double getVolumenMl() {
         return volumenMl;

@@ -6,6 +6,8 @@ import java.util.List;
 
 public class Pedido {
 
+    //ATRIBUTOS
+
     private final String codigo;
     private final LocalDate fecha;
     private final Cliente cliente;
@@ -15,6 +17,8 @@ public class Pedido {
     private EmpresaDomi empresaDomi;
     private boolean entregaAceptada;
     private final List<DetallePedido> detalles = new ArrayList<>();
+
+    //METODO CONSTRUCTOR
 
     public Pedido (String codigo, LocalDate fecha, Cliente cliente, Entrega modalidad, double distanciaKm) {
 
@@ -27,6 +31,8 @@ public class Pedido {
         this.entregaAceptada = false;
     }
 
+    //METODOS PARA LA CANTIDAD DE PRODUCTOS
+
     public boolean agregarDetalle(Producto producto, int cantidad) {
         if (estado != EstPedido.PENDIENTE) {
             return false;
@@ -38,6 +44,8 @@ public class Pedido {
         return true;
     }
 
+    //SE CALCULA EL SUBTOTAL
+
     public double calcularSubtotal() {
         double subtotal = 0;
         for (DetallePedido d : detalles) {
@@ -45,6 +53,8 @@ public class Pedido {
         }
         return subtotal;
     }
+
+    //SI SE ENTREGA A DOMI, PARA PONER LA OPCION Y SABER A QUE EMPRESA ENTREGARLO
 
     public boolean solicitarDomicilio(EmpresaDomi empresa) {
         if (modalidad != Entrega.DOMICILIO || empresa == null) {
@@ -65,6 +75,8 @@ public class Pedido {
         }
         return 0;
     }
+
+    //SE CALCULA EL TOTAL CON EL DOMI
 
     public double calcularTotal() {
         return calcularSubtotal() + calcularCostoDomicilio();
@@ -116,6 +128,9 @@ public class Pedido {
     public ResumenPedido crearResumen() {
         return new ResumenPedido(codigo, fecha, estado, calcularTotal());
     }
+
+
+    //GETTER, SETTER Y TOSTRING
 
     @Override
     public String toString() {

@@ -2,12 +2,15 @@ package uniquindio.edu.co.model;
 
 public abstract class Producto implements Verificar {
 
+    //ATRIBUTOS, CLASE PADRE
+
     private final String codigo;
     private String nombre;
     private String descripcion;
     private double precioBase;
     private int tiempoPreparacionMin;
 
+    //METODO COSNTRUCTOR
 
     protected Producto(String codigo, String nombre, String descripcion, double precioBase, int tiempoPreparacionMin){
 
@@ -18,6 +21,7 @@ public abstract class Producto implements Verificar {
         this.tiempoPreparacionMin = tiempoPreparacionMin;
     }
 
+    //SE DECLARAN METODOS
     public abstract double calcularPrecioVenta();
 
     public abstract TipoProducto getCategoria();
@@ -26,6 +30,8 @@ public abstract class Producto implements Verificar {
     public String toString(){
         return codigo + " - " + nombre + " ($ " + calcularPrecioVenta() + ")";
     }
+
+    //GETTER, SETTER
 
     public String getCodigo() {
         return codigo;

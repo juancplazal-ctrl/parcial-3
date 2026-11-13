@@ -2,9 +2,13 @@ package uniquindio.edu.co.model;
 
 public class Postre extends Producto {
 
+    //ATRIBUTOS
+
     private double pesoGramos;
     private double temperaturaAlmacenamiento;
     private boolean requiereRefrigeracion;
+
+    //METODO CONSTRUCTOR
 
     public Postre(String codigo, String nombre, String descripcion, double precioBase, int tiempoPreparacionMin, double pesoGramos, double temperaturaAlmacenamiento, boolean requiereRefrigeracion) {
 
@@ -14,6 +18,8 @@ public class Postre extends Producto {
         this.requiereRefrigeracion = requiereRefrigeracion;
 
     }
+
+    //METODO PARA CALCULAR EL PRECIO DEL POSTRE Y EL VALOR FINAL
 
     @Override
     public  double calcularPrecioVenta(){
@@ -34,6 +40,8 @@ public class Postre extends Producto {
         }
         return temperaturaAlmacenamiento >= 15 && temperaturaAlmacenamiento <= 30;
     }
+
+    //GETTER SETTER
 
     @Override
     public TipoProducto getCategoria(){

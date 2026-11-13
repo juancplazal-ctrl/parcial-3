@@ -8,6 +8,8 @@ import java.util.List;
 
 public class Main {
 
+    //DATOS DEL RESTAURANTE
+
     private static final Restaurante restaurante =
             new Restaurante("El Buen Comer", "900123456-7", "Armenia, Quindío");
 
@@ -15,6 +17,7 @@ public class Main {
         restaurante.agregarEmpresaDomicilio(new RapidoExpress());
         restaurante.agregarEmpresaDomicilio(new EntregaSegura());
 
+        //OPCIONES / MENU INTERACTIVO
 
         int opcion;
         do {
@@ -307,10 +310,6 @@ public class Main {
                 + "Categoría con mayores ingresos: " + (categoria == null ? "sin ventas" : categoria);
         mensaje(texto);
     }
-
-    // ---------- Datos de ejemplo (para la demostración) ----------
-
-
 
     // ---------- Utilidades de ventanas ----------
 

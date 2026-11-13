@@ -2,9 +2,13 @@ package uniquindio.edu.co.model;
 
 public class PlatoFuerte extends Producto {
 
+    //ATRIBUTOS
+
     private double pesoGramos;
     private Preparacion tipoPreparacion;
     private boolean coccionAprobada;
+
+    //METODO CONSTRUCTOR
 
     public PlatoFuerte(String codigo, String nombre, String descripcion, double precioBase, int tiempoPreparacionMin, double pesoGramos, Preparacion tipoPreparacion, boolean coccionAprobada){
 
@@ -14,6 +18,8 @@ public class PlatoFuerte extends Producto {
         this.coccionAprobada = coccionAprobada;
 
     }
+
+    //METODOS PARA CALCULAR EL PRECIO DEL PLATO Y SI CUMPLE LAS CONDICIONES
 
     @Override
     public double calcularPrecioVenta() {
@@ -35,6 +41,8 @@ public class PlatoFuerte extends Producto {
     public TipoProducto getCategoria(){
         return TipoProducto.PLATO_FUERTE;
     }
+
+    //GETTER Y SETTER
 
     public double getPesoGramos() {
         return pesoGramos;

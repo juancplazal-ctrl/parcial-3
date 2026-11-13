@@ -5,12 +5,16 @@ import java.util.List;
 
 public class Cliente {
 
+    //ATRIBUTOS
+
     private final String documento;
     private final String nombre;
     private final String telefono;
     private final String correo;
     private final String domicilio;
     private final List<Pedido> historialPedidos = new ArrayList<>();
+
+    //METODO CONSTRUCTOR
 
     public Cliente (String documento, String nombre, String telefono, String correo, String domicilio){
 
@@ -21,6 +25,8 @@ public class Cliente {
         this.domicilio = domicilio;
 
     }
+
+    //METODO PARA TENER EL HISTORIAL DE PEDIDOS DEL CLEINTE O CLIENTES
 
     public boolean agregarPedido(Pedido pedido){
         if(pedido == null){

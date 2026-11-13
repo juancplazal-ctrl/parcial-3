@@ -8,6 +8,8 @@ import java.util.Map;
 
 public class Restaurante {
 
+    //ATRIBUTOS Y ARRAY LIST
+
     private final String nombreComercial;
     private final String nit;
     private final String direccion;
@@ -16,11 +18,15 @@ public class Restaurante {
     private final List<Pedido> historialPedidos = new ArrayList<>();
     private final List<EmpresaDomi> empresasDomicilio = new ArrayList<>();
 
+    //METODO CONSTRUCTOR
+
     public Restaurante(String nombreComercial, String nit, String direccion) {
         this.nombreComercial = nombreComercial;
         this.nit = nit;
         this.direccion = direccion;
     }
+
+    //METODO PARA REGISTRAR EL PRODUCTO
 
     public boolean registrarProducto(Producto producto) {
         if (producto == null || buscarProducto(producto.getCodigo()) != null) {
@@ -30,6 +36,8 @@ public class Restaurante {
         return true;
     }
 
+    //METODO PARA REGISTRAR AL CLIENTE
+
     public boolean registrarCliente(Cliente cliente) {
         if (cliente == null || buscarCliente(cliente.getDocumento()) != null) {
             return false;
@@ -38,11 +46,15 @@ public class Restaurante {
         return true;
     }
 
+    //METODO PARA GREGAR LA EMPRESA DE DOMICILIO
+
     public void agregarEmpresaDomicilio(EmpresaDomi empresa) {
         if (empresa != null) {
             empresasDomicilio.add(empresa);
         }
     }
+
+    //METODO PARA BUSCAR EL PRODUCTO MEDIANTE EL CODIGO
 
     public Producto buscarProducto(String codigo) {
         for (Producto p : menu) {
@@ -53,6 +65,8 @@ public class Restaurante {
         return null;
     }
 
+    //METODO PARA BUSCAR A UN CLIENTE
+
     public Cliente buscarCliente(String documento) {
         for (Cliente c : clientes) {
             if (c.getDocumento().equals(documento)) {
@@ -62,6 +76,8 @@ public class Restaurante {
         return null;
     }
 
+    //METODO PARA BUSCAR UN PEDIDO
+
     public Pedido buscarPedido(String codigo) {
         for (Pedido p : historialPedidos) {
             if (p.getCodigo().equals(codigo)) {
@@ -70,6 +86,8 @@ public class Restaurante {
         }
         return null;
     }
+
+    //METODO PARA REGISTRAR UN PEDIDO
 
     public boolean registrarPedido(Pedido pedido) {
         if (pedido == null) {
@@ -84,6 +102,8 @@ public class Restaurante {
         return true;
     }
 
+    //METODO PARA SOLICITAR UN DOMICILIO
+
     public boolean solicitarDomicilio(Pedido pedido) {
         for (EmpresaDomi empresa : empresasDomicilio) {
             if (pedido.solicitarDomicilio(empresa)) {
@@ -92,6 +112,8 @@ public class Restaurante {
         }
         return false;
     }
+
+    //METODO PARA CONFIRMAR EL PEDIDO
 
     public boolean confirmarPedido(String codigo) {
         Pedido pedido = buscarPedido(codigo);
@@ -106,6 +128,8 @@ public class Restaurante {
         return pedido.confirmar();
     }
 
+    //METODOS PARA ENTREGAR O CANLCELAR EL PEDIDO
+
     public boolean entregarPedido(String codigo) {
         Pedido pedido = buscarPedido(codigo);
         return pedido != null && pedido.entregar();
@@ -116,6 +140,8 @@ public class Restaurante {
         return pedido != null && pedido.cancelar();
     }
 
+    //METODO PARA CALCULAR EL VALOR TOTAL
+
     public double calcularValorTotal(String codigo) {
         Pedido pedido = buscarPedido(codigo);
         if (pedido == null) {
@@ -123,6 +149,8 @@ public class Restaurante {
         }
         return pedido.calcularTotal();
     }
+
+    //LIST PARA EL HISTORIAL DEL CLIENTE, PRODUCTOD DISPONIBLES, PRODUCTOS NO CONFORMES
 
     public List<ResumenPedido> consultarHistorialCliente(String documento) {
         Cliente cliente = buscarCliente(documento);
@@ -152,6 +180,8 @@ public class Restaurante {
         return noConformes;
     }
 
+    //METODO PARA CALCUALR LOS INGRESOS DEL RESTAURANTE
+
     public ReporteIngresos calcularIngresos() {
         double restaurante = 0;
         double domicilios = 0;
@@ -164,6 +194,8 @@ public class Restaurante {
         return new ReporteIngresos(restaurante, domicilios, restaurante + domicilios);
     }
 
+    //METODO PARA VER CUAL ES EL PRODUCTO MAS VENDIDO
+
     public Producto productoMasVendido() {
         Map<String, Integer> unidades = new HashMap<>();
         for (Pedido p : historialPedidos) {
@@ -174,8 +206,8 @@ public class Restaurante {
                 }
             }
         }
-        String mejor = null;
-        int max = 0;
+        String mejor = null; // código del producto con más unidades
+        int max = 0;  // mayor cantidad de unidades encontrada hasta ahora
         for (Map.Entry<String, Integer> e : unidades.entrySet()) {
             if (e.getValue() > max) {
                 max = e.getValue();
@@ -208,6 +240,8 @@ public class Restaurante {
         }
         return mejor;
     }
+
+    //GETTER
 
     public String getNombreComercial() {
         return nombreComercial;

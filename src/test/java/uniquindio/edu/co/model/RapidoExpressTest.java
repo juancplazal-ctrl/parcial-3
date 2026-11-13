@@ -5,6 +5,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class RapidoExpressTest {
 
+    //PRUEBAS
+
     @Test
     void costoA10Km() {
         assertEquals(6510.0, new RapidoExpress().calcularCosto(10), 0.01);

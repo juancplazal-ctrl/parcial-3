@@ -6,6 +6,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class ClienteTest {
 
+    //PRUEBAS
+
     private Cliente cliente() {
         return new Cliente("1094", "Ana Perez", "300", "ana@correo.com", "Calle 1");
     }

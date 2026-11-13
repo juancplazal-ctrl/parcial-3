@@ -5,6 +5,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class PlatoFuerteTest {
 
+    //PRUEBAS
+
     private PlatoFuerte plato(double peso, int tiempo, boolean coccion) {
         return new PlatoFuerte("P01", "Bandeja", "Tipico", 20000, tiempo,
                 peso, Preparacion.ASADO, coccion);
